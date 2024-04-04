@@ -1,0 +1,90 @@
+<style>
+    .box {
+
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        margin-top: 10px;
+    }
+</style>
+<script>
+    const statesInIndia = [
+        "Andhra Pradesh",
+        "Arunachal Pradesh",
+        "Assam",
+        "Bihar",
+        "Chhattisgarh",
+        "Goa",
+        "Gujarat",
+        "Haryana",
+        "Himachal Pradesh",
+        "Jharkhand",
+        "Karnataka",
+        "Kerala",
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Manipur",
+        "Meghalaya",
+        "Mizoram",
+        "Nagaland",
+        "Odisha",
+        "Punjab",
+        "Rajasthan",
+        "Sikkim",
+        "Tamil Nadu",
+        "Telangana",
+        "Tripura",
+        "Uttar Pradesh",
+        "Uttarakhand",
+        "West Bengal"
+    ];
+
+</script>
+
+<!--  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="" id="states">
+
+        <script>
+
+            for (let i = 0; i < statesInIndia.length; i++) {
+
+                document.write(`<option value='${statesInIndia[i]}'>${statesInIndia[i]}</option>`)
+
+            }
+
+        </script>
+    </select>
+    <script>
+        for (let stateCount = 0; stateCount < statesInIndia.length; stateCount++) {
+            document.write(`<div id='box-${stateCount}' class='box'>${statesInIndia[stateCount]}</div>`);
+            //console.log(stateCount);
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+        </script>
+
+    <script>
+        $("#states").change(() => {
+            let currentState = $("#states").val();
+            console.log(currentState);
+            let box = $(".box");
+            $(".box").css("background-color", "");
+            $(`#box-${statesInIndia.indexOf(currentState)}`).css("background-color", "red");
+
+        })
+    </script>
+</body>
+
+</html>
